@@ -38,11 +38,14 @@ export const ContactForm = () => {
 
     const normalisedName = name.toLowerCase();
 
+    const addContactHandle = () => {
+      dispatch(addContact(value));
+      resetForm();
+    };
+
     contacts.find(contact => contact.name.toLowerCase() === normalisedName)
       ? alert(`${name} is already in contacts`)
-      : dispatch(addContact(value));
-
-    resetForm();
+      : addContactHandle();
   };
 
   return (
