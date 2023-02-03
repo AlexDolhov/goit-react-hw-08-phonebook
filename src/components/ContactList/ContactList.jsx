@@ -1,8 +1,8 @@
 // import PropTypes from 'prop-types';
 import { List, Item, Button } from './ContactList.styled';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectVisibleContacts } from 'redux/selectors';
-import { deleteContact } from 'redux/operations';
+import { selectVisibleContacts } from 'redux/contacts/selectors';
+import { deleteContact } from 'redux/contacts/operations';
 
 const ContactList = () => {
   const dispatch = useDispatch();
