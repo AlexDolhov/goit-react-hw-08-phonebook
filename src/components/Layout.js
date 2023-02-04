@@ -6,7 +6,7 @@ import { SectionContainer } from './Layout.styled';
 
 export const Layout = () => {
   return (
-    <div style={{ maxWidth: 960, margin: '0 auto', padding: '0 16px' }}>
+    <div style={{ maxWidth: 480, margin: '0 auto', padding: '0 16px' }}>
       <AppBar />
       <SectionContainer>
         <Suspense fallback={null}>

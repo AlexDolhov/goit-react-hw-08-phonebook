@@ -1,8 +1,8 @@
 import { useDispatch } from 'react-redux';
-import { addContact } from 'redux/contacts/operations';
 import { Label, Input, Button, ErrorText } from './RegisterForm.styled';
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
+import { register } from 'redux/auth/operations';
 
 const nameRegExp = /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/;
 
@@ -28,7 +28,7 @@ export const RegisterForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (value, { resetForm }) => {
-    dispatch(addContact(value));
+    dispatch(register(value));
     resetForm();
   };
 

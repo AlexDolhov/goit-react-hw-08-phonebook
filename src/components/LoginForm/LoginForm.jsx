@@ -1,8 +1,8 @@
 import { useDispatch } from 'react-redux';
-import { addContact } from 'redux/contacts/operations';
 import { Label, Input, Button, ErrorText } from './LoginForm.styled';
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
+import { login } from 'redux/auth/operations';
 
 let schema = yup.object().shape({
   email: yup.string().email('Email is incorrect').required('Email is required'),
@@ -15,7 +15,7 @@ export const LoginForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (value, { resetForm }) => {
-    dispatch(addContact(value));
+    dispatch(login(value));
     resetForm();
   };
 

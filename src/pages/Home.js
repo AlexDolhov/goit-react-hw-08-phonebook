@@ -1,27 +1,28 @@
-const styles = {
-  container: {
-    minHeight: 'calc(100vh - 50px)',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontWeight: 500,
-    fontSize: 48,
-    textAlign: 'center',
-  },
-};
+import styled from 'styled-components';
+
+const Container = styled.div`
+  min-height: calc(100vh - 51px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Title = styled.h1`
+  font-weight: 500;
+  font-size: 48px;
+  text-align: center;
+`;
 
 const Home = () => {
   return (
-    <div style={styles.container}>
-      <h1 style={styles.title}>
+    <Container>
+      <Title>
         Welcome to Phonebook
         <span role="img" aria-label="Phone icon">
           💁‍♀️
         </span>
-      </h1>
-    </div>
+      </Title>
+    </Container>
   );
 };
 

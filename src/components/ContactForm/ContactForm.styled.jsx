@@ -7,7 +7,7 @@ export const Label = styled.label`
   flex-direction: column;
   align-items: start;
 
-  padding: 10px 8px;
+  padding: 8px;
 
   font-size: 20px;
   cursor: pointer;
