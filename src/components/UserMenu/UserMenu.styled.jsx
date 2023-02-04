@@ -1,16 +1,9 @@
-import { useAuth } from 'hooks';
-import { useDispatch } from 'react-redux';
+import styled from 'styled-components';
 
-export const UserMenu = () => {
-  const dispatch = useDispatch();
-  const { user } = useAuth();
+export const Container = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 12px;
 
-  return (
-    <div>
-      <p>Welcome, {user.name}</p>
-      <button type="button" onClick={() => dispatch(logOut())}>
-        LogOut
-      </button>
-    </div>
-  );
-};
+  font-weight: 700;
+`;
