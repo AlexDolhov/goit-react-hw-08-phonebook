@@ -65,5 +65,5 @@ export const Button = styled.button`
 `;
 
 export const ErrorText = styled(ErrorMessage)`
-  color: tomato;
+  color: #ff6347;
 `;

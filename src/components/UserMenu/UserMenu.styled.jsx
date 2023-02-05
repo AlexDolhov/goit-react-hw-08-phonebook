@@ -6,7 +6,10 @@ export const Container = styled.div`
   gap: 12px;
 
   font-weight: 700;
+  
 `;
+
+
 
 export const Button = styled.button`
   display: inline-flex;

@@ -5,6 +5,17 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  /* &:after {
+    border: solid 150px #f8d05d;
+    transform: rotate(45deg);
+    position: absolute;
+    z-index: -1;
+    content: '';
+    top: 50%;
+    left: 50%;
+    height: 0;
+    width: 0;
+  } */
 `;
 
 const Title = styled.h1`
@@ -18,8 +29,9 @@ const Home = () => {
     <Container>
       <Title>
         Welcome to Phonebook
+        <br />
         <span role="img" aria-label="Phone icon">
-          💁‍♀️
+          📞
         </span>
       </Title>
     </Container>

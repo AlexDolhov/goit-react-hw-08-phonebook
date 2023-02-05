@@ -4,11 +4,12 @@ import Filter from 'components/Filter';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts } from 'redux/contacts/operations';
-import { selectIsLoading } from 'redux/contacts/selectors';
+import { selectError, selectIsLoading } from 'redux/contacts/selectors';
 
 export default function Tasks() {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -21,7 +22,7 @@ export default function Tasks() {
       {/* </Helmet> */}
       <ContactForm />
       <Filter />
-      <div>{isLoading && 'Request in progress...'}</div>
+      <div>{isLoading && !error && <b>Request in progress...</b>}</div>
       <ContactList />
     </>
   );
