@@ -14,9 +14,10 @@ const initialValues = { email: '', password: '' };
 export const LoginForm = () => {
   const dispatch = useDispatch();
 
-  const handleSubmit = (value, { resetForm }) => {
+  // const handleSubmit = (value, { resetForm }) => {
+  const handleSubmit = value => {
     dispatch(login(value));
-    resetForm();
+    // resetForm();
   };
 
   return (
@@ -36,7 +37,7 @@ export const LoginForm = () => {
           <Input type="text" name="password" />
           <ErrorText name="password" component="div" />
         </Label>
-        <Button type="submit">Add contact</Button>
+        <Button type="submit">Login</Button>
       </Form>
     </Formik>
   );

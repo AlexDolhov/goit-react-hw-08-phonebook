@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import toast from 'react-hot-toast';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
 
@@ -24,8 +25,10 @@ export const register = createAsyncThunk(
       const res = await axios.post('/users/signup', credentials);
       // After successful registration, add the token to the HTTP header
       setAuthHeader(res.data.token);
+      toast.success(`Wellcome ${credentials.name}`);
       return res.data;
     } catch (error) {
+      toast.error('This email is already in use!');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -42,8 +45,10 @@ export const login = createAsyncThunk(
       const res = await axios.post('/users/login', credentials);
       // After successful login, add the token to the HTTP header
       setAuthHeader(res.data.token);
+      toast('Wellcome', { icon: '👋' });
       return res.data;
     } catch (error) {
+      toast.error('The email or password is incorect');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -58,7 +63,9 @@ export const logout = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
     await axios.post('/users/logout');
     // After a successful logout, remove the token from the HTTP header
     clearAuthHeader();
+    toast.success('You have successfully been logged out');
   } catch (error) {
+    toast.error(error.message);
     return thunkAPI.rejectWithValue(error.message);
   }
 });
@@ -76,6 +83,7 @@ export const refreshUser = createAsyncThunk(
 
     if (persistedToken === null) {
       // If there is no token, exit without performing any request
+      toast.error('Unable to fetch user');
       return thunkAPI.rejectWithValue('Unable to fetch user');
     }
 
@@ -85,6 +93,7 @@ export const refreshUser = createAsyncThunk(
       const res = await axios.get('/users/current');
       return res.data;
     } catch (error) {
+      toast.error(error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }

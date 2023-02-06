@@ -27,9 +27,10 @@ const initialValues = { name: '', email: '', password: '' };
 export const RegisterForm = () => {
   const dispatch = useDispatch();
 
-  const handleSubmit = (value, { resetForm }) => {
+  // const handleSubmit = (value, { resetForm }) => {
+  const handleSubmit = value => {
     dispatch(register(value));
-    resetForm();
+    // resetForm();
   };
 
   return (

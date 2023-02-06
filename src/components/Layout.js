@@ -1,8 +1,8 @@
 import { Suspense } from 'react';
-import { Toaster } from 'react-hot-toast';
 import { Outlet } from 'react-router-dom';
 import AppBar from './AppBar';
 import { SectionContainer } from './Layout.styled';
+import { Toaster } from 'react-hot-toast';
 
 export const Layout = () => {
   return (
@@ -13,7 +13,7 @@ export const Layout = () => {
           <Outlet />
         </Suspense>
       </SectionContainer>
-      <Toaster position="top-right" reversOrder={false} />
+      <Toaster position="bottom: -center" reversOrder={false} />
     </div>
   );
 };
