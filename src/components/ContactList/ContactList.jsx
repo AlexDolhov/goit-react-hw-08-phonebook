@@ -14,7 +14,10 @@ const ContactList = () => {
       {contacts.map(({ id, name, number }) => (
         <Item key={id}>
           {name}: {number}
-          <Button type="submit" onClick={() => dispatch(deleteContact(id))}>
+          <Button
+            type="submit"
+            onClick={() => dispatch(deleteContact({ id, name }))}
+          >
             Delete
           </Button>
         </Item>
